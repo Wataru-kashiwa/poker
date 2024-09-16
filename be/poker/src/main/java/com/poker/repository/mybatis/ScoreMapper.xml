@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.poker.repository.mybatis.ScoreMapper">
+
+    <select id="findAll" resultType="com.poker.domain.Score">
+        SELECT * FROM poker_scores
+    </select>
+
+    <select id="findByUserId" parameterType="com.poker.domain.Score" resultType="com.poker.domain.Score">
+        SELECT * FROM poker_scores WHERE user_id = #{userId}
+    </select>
+
+    <!-- その他のSQL文を定義 -->
+
+</mapper>
