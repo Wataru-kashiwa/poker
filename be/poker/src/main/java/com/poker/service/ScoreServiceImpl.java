@@ -3,6 +3,7 @@ package com.poker.service;
 import com.poker.domain.Score;
 import com.poker.domain.ScoreList;
 import com.poker.repository.ScoreRepository;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,7 +23,9 @@ public class ScoreServiceImpl implements ScoreService{
     }
 
     @Override
-    public Score findByUserId(Long userId) {
-        return this.scoreRepository.findByUserId(userId);
+    public ScoreList findByUserId(Long userId) {
+        ScoreList scoreList = new ScoreList();
+        scoreList.setScoreList(scoreRepository.findByUserId(userId));
+        return scoreList;
     }
 }

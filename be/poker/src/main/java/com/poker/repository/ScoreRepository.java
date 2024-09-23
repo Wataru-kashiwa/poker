@@ -1,6 +1,7 @@
 package com.poker.repository;
 
 import com.poker.domain.Score;
+import com.poker.domain.ScoreList;
 import java.util.List;
 
 public interface ScoreRepository {
@@ -8,5 +9,5 @@ public interface ScoreRepository {
     List<Score> findAll();
 
     // ユーザーIDで検索
-    Score findByUserId(Long userId);
+    List<Score> findByUserId(Long userId);
 }

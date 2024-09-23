@@ -6,11 +6,38 @@
 <mapper namespace="com.poker.repository.mybatis.ScoreMapper">
 
     <select id="findAll" resultType="com.poker.domain.Score">
-        SELECT * FROM poker_scores
+        SELECT
+        ps.score_id AS scoreId,
+        ps.user_id AS userId,
+        u.username AS username,
+        ps.game_date AS gameDate,
+        ps.score AS score,
+        ps.updated_at AS updatedAt
+        FROM
+        poker_scores ps
+        JOIN
+        users u ON ps.user_id = u.user_id
+        ORDER BY
+        ps.user_id ASC,
+        ps.game_date ASC
     </select>
 
-    <select id="findByUserId" parameterType="com.poker.domain.Score" resultType="com.poker.domain.Score">
-        SELECT * FROM poker_scores WHERE user_id = #{userId}
+    <select id="findByUserId" parameterType="long" resultType="com.poker.domain.Score">
+        SELECT
+        ps.score_id AS scoreId,
+        ps.user_id AS userId,
+        u.username AS username,
+        ps.game_date AS gameDate,
+        ps.score AS score,
+        ps.updated_at AS updatedAt
+        FROM
+        poker_scores ps
+        JOIN
+        users u ON ps.user_id = u.user_id
+        WHERE
+        ps.user_id = #{userId}
+        ORDER BY
+        ps.game_date ASC
     </select>
 
     <!-- その他のSQL文を定義 -->

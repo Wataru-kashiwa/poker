@@ -28,11 +28,11 @@ CREATE TABLE poker_scores (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- usersテーブルにサンプルデータを挿入（ユーザーIDを明示的に指定）
+-- usersテーブルにサンプルデータを挿入（パスワードをハッシュ化）
 INSERT INTO users (user_id, username, email, password) VALUES
-(1, '山田太郎', 'taro.yamada@example.com', 'password123'),
-(2, '佐藤花子', 'hanako.sato@example.com', 'password456'),
-(3, '鈴木一郎', 'ichiro.suzuki@example.com', 'password789');
+(1, '山田太郎', 'taro.yamada@example.com', SHA2('password123', 256)),
+(2, '佐藤花子', 'hanako.sato@example.com', SHA2('password456', 256)),
+(3, '鈴木一郎', 'ichiro.suzuki@example.com', SHA2('password789', 256));
 
 -- poker_scoresテーブルにサンプルデータを挿入（ユーザー名とユーザーIDを記載）
 INSERT INTO poker_scores (user_id, username, game_date, score) VALUES

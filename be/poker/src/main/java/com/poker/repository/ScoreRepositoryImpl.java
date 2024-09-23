@@ -1,9 +1,8 @@
 package com.poker.repository;
 
 import com.poker.domain.Score;
-import com.poker.domain.User;
+import com.poker.domain.ScoreList;
 import com.poker.repository.mybatis.ScoreMapper;
-import com.poker.repository.mybatis.UserMapper;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -26,7 +25,7 @@ public class ScoreRepositoryImpl implements ScoreRepository{
     }
 
     @Override
-    public Score findByUserId(Long userId) {
+    public List<Score> findByUserId(Long userId) {
         return this.sqlSession.getMapper(ScoreMapper.class).findByUserId(userId);
-    };
+    }
 }
