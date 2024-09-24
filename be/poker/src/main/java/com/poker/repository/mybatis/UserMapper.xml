@@ -14,5 +14,10 @@
     </select>
 
     <!-- その他のSQL文を定義 -->
+    <!-- 新規ユーザー登録 -->
+    <insert id="insertUser" parameterType="com.poker.domain.User">
+        INSERT INTO users (username, email, password)
+        VALUES (#{userName}, #{email}, #{password})
+    </insert>
 
 </mapper>

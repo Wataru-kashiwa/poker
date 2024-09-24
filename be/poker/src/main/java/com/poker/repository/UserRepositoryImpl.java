@@ -28,4 +28,9 @@ public class UserRepositoryImpl implements UserRepository{
     public User findById(Long userId) {
         return this.sqlSession.getMapper(UserMapper.class).findById(userId);
     }
+
+    @Override
+    public void insertUser(User user) {
+        this.sqlSession.getMapper(UserMapper.class).insertUser(user);
+    }
 }

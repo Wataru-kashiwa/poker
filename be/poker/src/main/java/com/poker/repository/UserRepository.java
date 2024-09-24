@@ -7,4 +7,7 @@ public interface UserRepository {
     List<User> findAll();
 
     User findById(Long userId);
+
+    //新規ユーザー登録メソッド
+    void insertUser(User user);
 }

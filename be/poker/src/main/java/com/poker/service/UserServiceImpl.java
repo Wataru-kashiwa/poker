@@ -5,6 +5,7 @@ import com.poker.domain.UserList;
 import com.poker.repository.UserRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -25,5 +26,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public User getUserById(Long userId){
         return userRepository.findById(userId);
+    }
+
+    @Override
+    public void insertUser(User user) {
+        userRepository.insertUser(user);
     }
 }
