@@ -9,4 +9,6 @@ public interface ScoreService{
     ScoreList findAll();
 
     ScoreList findByUserId(Long userId);
+
+    void insertScore(Score score);
 }

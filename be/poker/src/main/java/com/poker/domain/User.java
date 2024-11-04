@@ -13,6 +13,15 @@ public class User {
     private String email;
     private String password;
     private String createdAt;
+    private String updatedBy;
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
 
     public Long getUserId() {
         return userId;

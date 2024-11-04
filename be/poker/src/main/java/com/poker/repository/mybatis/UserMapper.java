@@ -17,4 +17,7 @@ public interface UserMapper {
     // 新規ユーザー登録メソッド
     void insertUser(User user);
 
+    // ユーザー情報の更新
+    void updateUser(User user);
+
 }

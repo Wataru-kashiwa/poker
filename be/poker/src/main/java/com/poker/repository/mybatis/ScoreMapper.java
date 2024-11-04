@@ -15,4 +15,5 @@ public interface ScoreMapper {
     List<Score> findByUserId(@Param("userId") Long userId);
 
     // その他のメソッド（追加、更新、削除）も必要に応じて定義
+    void insertScore(Score score);
 }

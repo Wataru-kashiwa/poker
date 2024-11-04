@@ -20,4 +20,17 @@
         VALUES (#{userName}, #{email}, #{password})
     </insert>
 
+    <!-- ユーザー情報の更新 -->
+    <update id="updateUser" parameterType="com.poker.domain.User">
+        UPDATE users
+        SET
+        username = #{userName},
+        updated_by = #{updatedBy},
+        email = #{email}
+        <if test="password != null">
+            , password = #{password}
+        </if>
+        WHERE user_id = #{userId}
+    </update>
+
 </mapper>

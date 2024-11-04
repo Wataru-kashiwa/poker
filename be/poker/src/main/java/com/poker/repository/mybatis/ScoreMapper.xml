@@ -41,5 +41,10 @@
     </select>
 
     <!-- その他のSQL文を定義 -->
+    <!-- 新規スコア登録 -->
+    <insert id="insertScore" parameterType="com.poker.domain.Score">
+        INSERT INTO poker_scores (user_id, game_date, score)
+        VALUES (#{userId}, #{gameDate}, #{score})
+    </insert>
 
 </mapper>

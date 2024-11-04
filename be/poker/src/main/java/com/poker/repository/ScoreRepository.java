@@ -10,4 +10,6 @@ public interface ScoreRepository {
 
     // ユーザーIDで検索
     List<Score> findByUserId(Long userId);
+
+    void insertScore(Score score);
 }
