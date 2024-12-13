@@ -3,15 +3,18 @@ package com.poker.controller;
 import com.poker.domain.Score;
 import com.poker.domain.ScoreList;
 import com.poker.domain.User;
+import com.poker.dto.ScoreEditRequest;
 import com.poker.dto.ScoreRequest;
 import com.poker.service.ScoreService;
 import com.poker.service.ScoreServiceImpl;
+import jakarta.validation.Valid;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,6 +51,13 @@ public class ScoreController {
 
         scoreService.insertScore(score);
         return "Score added successfully";
+    }
+
+    // スコア情報の更新
+    @PutMapping(path = "/edit", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String editScore(@Valid @RequestBody ScoreEditRequest scoreEditRequest) {
+        scoreService.updateScore(scoreEditRequest);
+        return "Score updated successfully";
     }
 
 }

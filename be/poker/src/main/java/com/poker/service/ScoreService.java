@@ -2,6 +2,7 @@ package com.poker.service;
 
 import com.poker.domain.Score;
 import com.poker.domain.ScoreList;
+import com.poker.dto.ScoreEditRequest;
 import java.util.List;
 
 public interface ScoreService{
@@ -11,4 +12,5 @@ public interface ScoreService{
     ScoreList findByUserId(Long userId);
 
     void insertScore(Score score);
+    void updateScore(ScoreEditRequest scoreEditRequest);
 }

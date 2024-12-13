@@ -40,11 +40,31 @@
         ps.game_date ASC
     </select>
 
+    <!-- スコアIDでスコアを取得 -->
+    <select id="findById" parameterType="long" resultType="com.poker.domain.Score">
+        SELECT ps.score_id, ps.user_id, u.username, ps.game_date, ps.score, ps.updated_at, ps.updated_by
+        FROM poker_scores ps
+        JOIN users u ON ps.user_id = u.user_id
+        WHERE ps.score_id = #{scoreId}
+    </select>
+
     <!-- その他のSQL文を定義 -->
     <!-- 新規スコア登録 -->
     <insert id="insertScore" parameterType="com.poker.domain.Score">
         INSERT INTO poker_scores (user_id, game_date, score)
         VALUES (#{userId}, #{gameDate}, #{score})
     </insert>
+
+    <!-- スコア情報の更新 -->
+    <update id="updateScore" parameterType="com.poker.domain.Score">
+        UPDATE poker_scores
+        <set>
+            score = #{score},
+            game_date = #{gameDate},
+            updated_at = CURRENT_TIMESTAMP,
+            updated_by = #{updatedBy}
+        </set>
+        WHERE score_id = #{scoreId}
+    </update>
 
 </mapper>

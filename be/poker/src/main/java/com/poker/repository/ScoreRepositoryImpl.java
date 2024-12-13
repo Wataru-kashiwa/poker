@@ -30,8 +30,18 @@ public class ScoreRepositoryImpl implements ScoreRepository{
     }
 
     @Override
+    public Score findById(Long scoreId) {
+        return this.sqlSession.getMapper(ScoreMapper.class).findById(scoreId);
+    }
+
+    @Override
     public void insertScore(Score score) {
         this.sqlSession.getMapper(ScoreMapper.class).insertScore(score);
+    }
+
+    @Override
+    public void updateScore(Score score) {
+        this.sqlSession.getMapper(ScoreMapper.class).updateScore(score);
     }
 
 }

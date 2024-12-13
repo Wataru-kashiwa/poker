@@ -17,6 +17,8 @@ public class Score {
     private Integer score;
     private LocalDateTime updatedAt;
 
+    private String updatedBy;
+
     // ゲッターとセッター
     public Long getScoreId() {
         return scoreId;
@@ -64,5 +66,14 @@ public class Score {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
     }
 }
