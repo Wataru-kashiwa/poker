@@ -42,6 +42,7 @@ public class ScoreController {
     // 新規スコア登録
     @PostMapping(path = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)
     public String addScore(@RequestBody ScoreRequest scoreRequest) {
+
         Score score = new Score();
         score.setUserId(scoreRequest.getUserId());
         score.setScore(scoreRequest.getScore());

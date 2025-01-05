@@ -1,6 +1,7 @@
 package com.poker.repository;
 
 import com.poker.domain.User;
+import com.poker.dto.DBUser;
 import com.poker.repository.mybatis.UserMapper;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
@@ -38,4 +39,8 @@ public class UserRepositoryImpl implements UserRepository{
     public void updateUser(User user) {
         this.sqlSession.getMapper(UserMapper.class).updateUser(user);
     }
+
+    @Override
+    public DBUser loginUser(String username) { return this.sqlSession.getMapper(UserMapper.class).loginUser(username);}
+
 }

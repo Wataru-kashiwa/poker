@@ -1,6 +1,7 @@
 package com.poker.repository;
 
 import com.poker.domain.User;
+import com.poker.dto.DBUser;
 import java.util.List;
 
 public interface UserRepository {
@@ -13,4 +14,6 @@ public interface UserRepository {
 
     //ユーザー情報の更新
     void updateUser(User user);
+
+    DBUser loginUser(String username);
 }

@@ -2,6 +2,7 @@ package com.poker.service;
 
 import com.poker.domain.User;
 import com.poker.domain.UserList;
+import com.poker.dto.DBUser;
 import com.poker.dto.UserEditRequest;
 import com.poker.dto.UserRequest;
 import com.poker.repository.UserRepository;
@@ -37,6 +38,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void insertUser(User user) {
+        // パスワードのハッシュ化
+        String hashedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hashedPassword);
         userRepository.insertUser(user);
     }
 

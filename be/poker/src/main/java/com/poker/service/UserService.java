@@ -2,6 +2,7 @@ package com.poker.service;
 
 import com.poker.domain.User;
 import com.poker.domain.UserList;
+import com.poker.dto.DBUser;
 import com.poker.dto.UserEditRequest;
 
 public interface UserService {
@@ -13,5 +14,4 @@ public interface UserService {
 
     // ユーザーの編集
     void updateUser(UserEditRequest userEditRequest);
-
 }

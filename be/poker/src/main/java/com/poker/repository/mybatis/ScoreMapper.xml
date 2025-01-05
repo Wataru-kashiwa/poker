@@ -8,7 +8,7 @@
     <select id="findAll" resultType="com.poker.domain.Score">
         SELECT
         ps.score_id AS scoreId,
-        ps.user_id AS userId,
+        ps.userid AS userId,
         u.username AS username,
         ps.game_date AS gameDate,
         ps.score AS score,
@@ -16,16 +16,16 @@
         FROM
         poker_scores ps
         JOIN
-        users u ON ps.user_id = u.user_id
+        users u ON ps.userid = u.userid
         ORDER BY
-        ps.user_id ASC,
+        ps.userid ASC,
         ps.game_date ASC
     </select>
 
     <select id="findByUserId" parameterType="long" resultType="com.poker.domain.Score">
         SELECT
         ps.score_id AS scoreId,
-        ps.user_id AS userId,
+        ps.userid AS userId,
         u.username AS username,
         ps.game_date AS gameDate,
         ps.score AS score,
@@ -33,25 +33,25 @@
         FROM
         poker_scores ps
         JOIN
-        users u ON ps.user_id = u.user_id
+        users u ON ps.userid = u.userid
         WHERE
-        ps.user_id = #{userId}
+        ps.userid = #{userId}
         ORDER BY
         ps.game_date ASC
     </select>
 
     <!-- スコアIDでスコアを取得 -->
     <select id="findById" parameterType="long" resultType="com.poker.domain.Score">
-        SELECT ps.score_id, ps.user_id, u.username, ps.game_date, ps.score, ps.updated_at, ps.updated_by
+        SELECT ps.score_id, ps.userid, u.username, ps.game_date, ps.score, ps.updated_at, ps.updated_by
         FROM poker_scores ps
-        JOIN users u ON ps.user_id = u.user_id
+        JOIN users u ON ps.userid = u.userid
         WHERE ps.score_id = #{scoreId}
     </select>
 
     <!-- その他のSQL文を定義 -->
     <!-- 新規スコア登録 -->
     <insert id="insertScore" parameterType="com.poker.domain.Score">
-        INSERT INTO poker_scores (user_id, game_date, score)
+        INSERT INTO poker_scores (userid, game_date, score)
         VALUES (#{userId}, #{gameDate}, #{score})
     </insert>
 

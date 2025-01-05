@@ -1,6 +1,7 @@
 package com.poker.repository.mybatis;
 
 import com.poker.domain.User;
+import com.poker.dto.DBUser;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -20,4 +21,6 @@ public interface UserMapper {
     // ユーザー情報の更新
     void updateUser(User user);
 
+    // ユーザーログイン情報を取得する
+    DBUser loginUser(@Param("username") String username);
 }

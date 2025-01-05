@@ -10,7 +10,7 @@
     </select>
 
     <select id="findById" parameterType="com.poker.domain.User" resultType="com.poker.domain.User">
-        SELECT * FROM users WHERE user_id = #{userId}
+        SELECT * FROM users WHERE userid = #{userId}
     </select>
 
     <!-- その他のSQL文を定義 -->
@@ -30,7 +30,14 @@
         <if test="password != null">
             , password = #{password}
         </if>
-        WHERE user_id = #{userId}
+        WHERE userid = #{userId}
     </update>
+
+    <!-- ユーザーログイン情報を取得する -->
+    <select id="loginUser" parameterType="string" resultType="com.poker.dto.DBUser">
+        SELECT userid, username, password, role
+        FROM users
+        WHERE username = #{username}
+    </select>
 
 </mapper>
