@@ -2,6 +2,7 @@
 
 package com.poker.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.time.LocalDate;
@@ -15,6 +16,7 @@ public class Score {
     private String username;
     private LocalDate gameDate;
     private Integer score;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedAt;
 
     private String updatedBy;
