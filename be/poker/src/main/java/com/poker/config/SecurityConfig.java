@@ -54,7 +54,8 @@ public class SecurityConfig {
                 .cors(cors -> {})
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/scores/edit", "/scores/add", "/scores/delete").authenticated()
+                        .requestMatchers("/scores/edit", "/scores/delete").authenticated()
+                        .requestMatchers("/scores/add").permitAll()
                         .requestMatchers("/scores/**", "/home").permitAll()
                         .anyRequest().permitAll()
                 )

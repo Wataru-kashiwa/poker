@@ -51,8 +51,15 @@
     <!-- その他のSQL文を定義 -->
     <!-- 新規スコア登録 -->
     <insert id="insertScore" parameterType="com.poker.domain.Score">
-        INSERT INTO poker_scores (userid, game_date, score)
-        VALUES (#{userId}, #{gameDate}, #{score})
+        INSERT INTO poker_scores (userid, game_date, score, username)
+        SELECT
+        #{userId},
+        #{gameDate},
+        #{score},
+        u.username
+        FROM users u
+        WHERE u.userid = #{userId}
+
     </insert>
 
     <!-- スコア情報の更新 -->

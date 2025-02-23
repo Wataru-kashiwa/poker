@@ -46,6 +46,7 @@ public class ScoreController {
         Score score = new Score();
         score.setUserId(scoreRequest.getUserId());
         score.setScore(scoreRequest.getScore());
+        System.out.println(scoreRequest.getUserId());
 
         // 現在の日時を設定
         score.setGameDate(LocalDate.from(LocalDateTime.now()));
