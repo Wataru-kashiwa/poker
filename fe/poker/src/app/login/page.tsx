@@ -48,8 +48,8 @@ export default function LoginPage() {
 
       // ローカルストレージに保存する例（本番では httpOnly Cookie 等を推奨）
       localStorage.setItem('auth_token', data.token);
-      localStorage.setItem('user_role', data.role);
-      console.log(data)
+      localStorage.setItem('user_id', String(data.userId));
+      localStorage.setItem('role', data.role);
 
       // ログイン後のページへ遷移
       router.push('/');
