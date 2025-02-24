@@ -79,6 +79,13 @@ public class ScoreServiceImpl implements ScoreService{
 
     @Override
     @Transactional
+    public Score findByScoreId(Long scoreId) {
+        System.out.println(scoreRepository.findByScoreId(scoreId).getScoreId());
+        return scoreRepository.findByScoreId(scoreId);
+    }
+
+    @Override
+    @Transactional
     public void insertScore(Score score) {
         // ユーザーの存在チェックとusernameの取得
         User user = userRepository.findById(score.getUserId());

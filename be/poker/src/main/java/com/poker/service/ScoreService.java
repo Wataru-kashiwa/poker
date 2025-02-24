@@ -11,6 +11,8 @@ public interface ScoreService{
 
     ScoreList findByUserId(Long userId);
 
+    Score findByScoreId(Long scoreId);
+
     void insertScore(Score score);
     void updateScore(ScoreEditRequest scoreEditRequest);
 }

@@ -58,6 +58,21 @@
         WHERE ps.score_id = #{scoreId}
     </select>
 
+    <select id="findByScoreId" resultType="com.poker.domain.Score">
+        SELECT
+        ps.score_id     AS scoreId,
+        ps.userid       AS userId,
+        u.username      AS username,
+        ps.game_date    AS gameDate,
+        ps.score        AS score,
+        ps.updated_at   AS updatedAt,
+        ps.updated_by   AS updatedBy
+        FROM poker_scores ps
+        JOIN users u ON ps.userid = u.userid
+        WHERE ps.score_id = #{scoreId}
+    </select>
+
+
     <!-- その他のSQL文を定義 -->
     <!-- 新規スコア登録 -->
     <insert id="insertScore" parameterType="com.poker.domain.Score">

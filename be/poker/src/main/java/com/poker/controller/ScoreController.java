@@ -39,6 +39,8 @@ public class ScoreController {
         return scoreService.findByUserId(userId);
     }
 
+    @GetMapping("detail/{scoreId}")
+    public  Score findByScoreId(@PathVariable("scoreId") Long scoreId) {return  scoreService.findByScoreId(scoreId);}
     // 新規スコア登録
     @PostMapping(path = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)
     public String addScore(@RequestBody ScoreRequest scoreRequest) {

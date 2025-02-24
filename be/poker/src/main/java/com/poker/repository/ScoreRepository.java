@@ -12,6 +12,8 @@ public interface ScoreRepository {
     List<Score> findByUserId(Long userId);
     Score findById(Long scoreId);
 
+    Score findByScoreId(Long scoreId);
+
     void insertScore(Score score);
     void updateScore(Score score);
 }
